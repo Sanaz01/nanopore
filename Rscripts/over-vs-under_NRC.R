@@ -4,7 +4,7 @@
 ##Downstream processing after Guppy basecalling and modified base identification
 
 ##Created by Sanaz Agarwal
-##14 October 2021
+##14 November 2021
 ##Email: sanaz.iitd@gmail.com
 ##For use in Rstudio environment
 
