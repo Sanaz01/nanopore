@@ -1,0 +1,10 @@
+FY_d1 - simple modified basecalling to detect methylation marks using multiple softwares
+EB_EL_d1 - same as above + barcoding
+
+EB and FY are uncomplicated malaria samples.
+EL is celebral malaria sample.
+d denotes DNA.
+
+We need to check if at all there is methylation in parasite DNA. 
+Now that we have a clue for it, we need to check the credibility of it on the basis of
+different tools to verify if the methylation is occurring on the same coordinate on the genome.

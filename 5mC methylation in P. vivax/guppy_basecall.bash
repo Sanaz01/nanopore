@@ -8,13 +8,6 @@
 ###Performing modified basecalling using Guppy basecalling software developed by Oxford Nanopore Technologies
 ###Used to detect 5mC modifed CpG sites in Plasmodium vivax sal 1
 
-#FY_d1 - simple modified basecalling to detect methylation marks using multiple softwares
-#EB_EL_d1 - same as above + barcoding 
-
-#EB and FY are uncomplicated malaria samples. 
-#EL is celebral malaria sample. 
-#d denotes DNA.
-
 ##Version: Guppy - 5.0.14 (GPU based)
 
 config_file=$1        ##onfiguration file used. See list of configuration files available as 'ls /ont-guppy/data/*.cfg'
