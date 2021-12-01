@@ -7,6 +7,6 @@ for rec in SeqIO.parse(FastaFile, 'fasta'):
     name = rec.id
     seq = rec.seq
     seqLen = len(rec)
-    print (name, seqLen)
+    print (name, '1', seqLen, sep='\t')
 
 FastaFile.close()
