@@ -3,7 +3,7 @@
 ###Wrapper function for modified basecalling, getting methylation frequencies, plotting methylation status
 
 ##Created by Sanaz Agarwal
-##9 September 2021
+##25 November 2021
 ##Email: sanaz.iitd@gmail.com
 
 config_file=$1        ##onfiguration file used. See list of configuration files available as 'ls /ont-guppy/data/*.cfg'
