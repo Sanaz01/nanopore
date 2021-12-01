@@ -12,11 +12,6 @@
 #             nrc_dep - scaffold name, start and end location of under represented regions in NRC
 #             nrc_enr - scaffold name, start and end location of over represented regions in NRC
 
-##If operating from terminal
-#args <- commandArgs(trailingOnly = TRUE)
-#bed = read.delim("args[1]", header=F)
-#dep = read.delim("args[2]", header=F)
-
 ##set a working directory, containing reference.gtf and bedfile 
 #setwd('working/directory/')
 
@@ -24,10 +19,21 @@
 lib = list("IRanges", "GenomicRanges", "ggplot2", "ggstatsplot")
 for (i in lib) { if (!require(i)) install.packages(i); library(i) }
 
-bd = read.delim("bedfile", header=FALSE)            #load BED file in Rstudio
+##Operating from terminal
+args <- commandArgs(trailingOnly = TRUE)
+bd = read.delim("args[1]", header=F)
+gtf = read.delim("args[2]", header=F)
+dep = read.delim("args[3]", header=F)
+enr = read.delim("args[4]", header=F)
+
+##When using from Rscript
+#bd = read.delim("bedfile", header=FALSE)            #load BED file in Rstudio
+#gtf = read.delim("reference_genome.gtf", header=F)  #load GTF file
+#dep = read.delim("nrc_dep", header=F)               #NRC under represented regions
+#enr = read.delim("nrc_enr", header=F)               #NRC over represented regions
+
 bed = bd[which(bd$V11!="0"),]                       #remove CpG sites with zero methylation frequency
-dep = read.delim("nrc_dep", header=F)               #NRC under represented regions
-enr = read.delim("nrc_enr", header=F)               #NRC over represented regions
+rm(bd)
 
 ##making GRanges
 gr_bed = GRanges(seqnames = bed$V1, range = IRanges(start=bed$V2, end=bed$V3))
@@ -52,11 +58,13 @@ df = rbind(df_enr,df_dep)
 colnames(df) = c("Frequency", "NRC_regions")
 
 ##Boxplot of methylation in over and under rep. NRC regions
-ggplot(df) + aes(x=NRC_regions, y=Frequency) + geom_boxplot(fill = "#FFDB6D", color = "#C4961A") + theme_minimal()
+#ggplot(df) + aes(x=NRC_regions, y=Frequency) + geom_boxplot(fill = "#FFDB6D", color = "#C4961A") + theme_minimal()
 
 ##Test for normal distribution
-hist(subset(df, NRC_regions=="Over rep.")$Frequency, main="Average methylaion in Over Rep. NRC", xlab="Methylation frequency", ylab="No. of regions")
-hist(subset(df, NRC_regions=="Under rep.")$Frequency, main="Average methylaion in Under Rep. NRC", xlab="Methylation frequency", ylab="No. of regions")
+
+#hist(subset(df, NRC_regions=="Over rep.")$Frequency, main="Average methylaion in Over Rep. NRC", xlab="Methylation frequency", ylab="No. of regions")
+#hist(subset(df, NRC_regions=="Under rep.")$Frequency, main="Average methylaion in Under Rep. NRC", xlab="Methylation frequency", ylab="No. of regions")
+
 
 shapiro.test(subset(df, NRC_regions == "Over rep.")$Frequency)
 shapiro.test(subset(df, NRC_regions == "Under rep.")$Frequency)
@@ -64,7 +72,17 @@ shapiro.test(subset(df, NRC_regions == "Under rep.")$Frequency)
 ##Wilcox t-test
 wilcox.test(df$Frequency ~ df$NRC_regions)
 
+##Plot distribution histograms of over and under rep. NRCs
+pdf("Methylation distribution - Over Rep. NRC")
+gghistostats(data=df_enr, x=value, xlab="Methylation frequency", title="Average methylaion in Over Rep. NRC")
+dev.off()
+pdf("Methylation distribution - Under Rep. NRC")
+gghistostats(data=df_dep, x=value, xlab="Methylation frequency", title="Average methylaion in Under Rep. NRC")
+dev.off()
+
+
 ##Plot comparision of over and under NRC regions
+pdf("Methylation comparision - Over and Under Rep. NRC")
 ggbetweenstats( # independent samples
   data = df,
   x = NRC_regions,
@@ -73,7 +91,5 @@ ggbetweenstats( # independent samples
   type = "nonparametric", # for wilcoxon
   centrality.plotting = FALSE # remove median
 )
+dev.off()
 
-##Plot distribution histograms of over and under rep. NRCs
-gghistostats(data=df_enr, x=value, xlab="Methylation frequency", title="Average methylaion in Over Rep. NRC")
-gghistostats(data=df_dep, x=value, xlab="Methylation frequency", title="Average methylaion in Under Rep. NRC")

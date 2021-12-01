@@ -14,12 +14,6 @@
 #             nrc_dep - scaffold name, start and end location of under represented regions in NRC
 #             nrc_enr - scaffold name, start and end location of over represented regions in NRC
 
-
-##If operating from terminal
-#args <- commandArgs(trailingOnly = TRUE)
-#bed = read.delim("args[1]", header=F)
-#dep = read.delim("args[2]", header=F)
-
 ##set a working directory, containing reference.gtf and bedfile 
 #setwd('working/directory/')
 
@@ -27,14 +21,25 @@
 lib = list("IRanges", "GenomicRanges", "ggplot2", "ggstatsplot")
 for (i in lib) { if (!require(i)) install.packages(i); library(i) }
 
-bd = read.delim("bedfile", header=FALSE)            #load BED file in Rstudio
-bed = bd[which(bd$V11!="0"),]                       #remove CpG sites with zero methylation frequency
-dep = read.delim("nrc_dep", header=F)               #NRC under represented regions
-enr = read.delim("nrc_enr", header=F)               #NRC over represented regions
+##Operating from terminal
+args <- commandArgs(trailingOnly = TRUE)
+bd = read.delim("args[1]", header=F)
+gtf = read.delim("args[2]", header=F)
+dep = read.delim("args[3]", header=F)
+enr = read.delim("args[4]", header=F)
+len = read.delim("args[5]", header=F)   
 
-gtf = read.delim("reference_genome.gtf", header=F)  #load GTF file
+##When using from Rscript
+#bd = read.delim("bedfile", header=FALSE)            #load BED file in Rstudio
+#dep = read.delim("nrc_dep", header=F)               #NRC under represented regions
+#enr = read.delim("nrc_enr", header=F)               #NRC over represented regions
+#gtf = read.delim("reference_genome.gtf", header=F)  #load GTF file
+#len = read.delim("len_reference_fasta", header=F)   #load file with length of scaffolds or chromosomes
+
 gene=gtf[which(gtf$V3=="gene"),]                    #extract gene information from GTF file
-len = read.delim("len_reference_fasta", header=F)   #load file with length of scaffolds or chromosomes
+bed = bd[which(bd$V11!="0"),]                       #remove CpG sites with zero methylation frequency
+rm(bd)
+
 
 ##making GRanges
 gr_bed = GRanges(seqnames = bed$V1, range = IRanges(start=bed$V2, end=bed$V3))
