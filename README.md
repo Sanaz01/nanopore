@@ -3,8 +3,11 @@
 
 ## Methylation distribution in over and under represented NRC regions
 
-<img src='Plots/avg. meth in over rep NRC.png' width='700px' height='500px' />
-<img src='Plots/Avg. meth in Under rep. NRC.png' width='700px' height='500px' />
+<p float="left">
+
+<img src='Plots/avg. meth in over rep NRC.png' width='480px' height='400px' />
+<img src='Plots/Avg. meth in Under rep. NRC.png' width='480px' height='400px' />
+ </p>
 <br/>
 
 ### Using ```Shapiro Wilk test``` to check for normality distribution
@@ -50,9 +53,11 @@ The p-value is less than 0.05, thus the null hypothesis is rejected and it is co
 To understand which genomic regions within NRC caused this differential expression, we analysed methylation in intergenic, exonic and intronic reigons.
 ## Distribution of methylation frequency in Intergenic regions of NRC
 
-<img src='Plots/intergenic - over rep..png' width='700px' height='500px' />
-<img src='Plots/Intergenic - under rep.png' width='700px' height='500px' />
-
+<p float="left">
+<img src='Plots/intergenic - over rep..png' width='480px' height='400px' />
+<img src='Plots/Intergenic - under rep.png' width='480px' height='400px' />
+</p>
+  
 ### Using ```Shapiro Wilk test``` to check for normality distribution
 ```> shapiro.test(subset(df, NRC_regions == "Over rep.")$Frequency)```
 ```
@@ -86,9 +91,11 @@ The p-value is less than 0.05. Therefore, there is significant difference in the
 
 ## Distribution of methylation frequency in Exonic regions of NRC
 
-<img src='Plots/exonic - over rep..png' width='700px' height='500px' />
-<img src='Plots/exonic - under rep..png' width='700px' height='500px' />
-
+<p float="left">
+<img src='Plots/exonic - over rep..png' width='480px' height='400px' />
+<img src='Plots/exonic - under rep..png' width='480px' height='400px' />
+</p>
+  
 ### Using ```Shapiro Wilk test``` to check for normality distribution
 ```> shapiro.test(subset(df_exon, NRC_regions == "Over rep.")$Frequency)```
 ```
@@ -118,9 +125,12 @@ As p-value < 0.05, there is significant difference in the methylation status of 
 
 ## Distribution of methylation frequency in Intronic regions of NRC
 
-<img src='Plots/intronic - over rep..png' width='700px' height='500px' />
-<img src='Plots/intronic - under rep..png' width='700px' height='500px' />
 
+<p float="left">
+<img src='Plots/intronic - over rep..png' width='480px' height='400px' />
+<img src='Plots/intronic - under rep..png' width='480px' height='400px' />
+</p>
+  
 ### Using ```Shapiro Wilk test``` to check for normality distribution
 ```> shapiro.test(subset(df_intron, NRC_regions == "Over rep.")$Frequency)```
 ```
