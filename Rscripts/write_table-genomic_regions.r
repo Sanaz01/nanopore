@@ -87,7 +87,7 @@ g$seq = seq_len(length(g$V1))
 mg = data.frame(meth_genewise)
 mg$num = rownames(mg)
 mg$num <- as.numeric(mg$num)
-sg <- S4Vectors::merge(x=g,y=me,by.x="seq",by.y="num", all.x=TRUE, sort=F) %>% arrange(factor(seq, levels = g$seq))
+sg <- S4Vectors::merge(x=g,y=mg,by.x="seq",by.y="num", all.x=TRUE, sort=F) %>% arrange(factor(seq, levels = g$seq))
 df_gene  = subset(sg, select=-c(seq))
 write.table(df_gene, "Meth freq in genes", sep="\t", row.names = FALSE, col.names = FALSE, quote=FALSE)
 
