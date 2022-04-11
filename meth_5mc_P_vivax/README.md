@@ -1,14 +1,52 @@
-# Methylation distribution in NRC regions of _Maconellicoccus hirsutus_
+# Presence of Methylation markers in Plasmodium vivax sal I
 <br/>
+We used two different basecalling softwares - Guppy and Megalodon to study the presence and distribution of epigenetic markers across the genome.
 
-## Methylation distribution in over and under represented NRC regions
+## Methylation distribution in exonic regions
 
 <p float="left">
-
-<img src='Plots/avg. meth in over rep NRC.png' width='480px' height='400px' />
-<img src='Plots/Avg. meth in Under rep. NRC.png' width='480px' height='400px' />
- </p>
+<img src='Plots/meth dist. in exon - guppy' width='480px' height='400px' />
+<img src='Plots/meth dist. in exon - mega' width='480px' height='400px' />
+</p>
 <br/>
+
+## Methylation distribution in intronic regions
+<p float="left">
+<img src='Plots/meth dist. in intron - guppy' width='480px' height='400px' />
+<img src='Plots/meth dist. in intron - mega' width='480px' height='400px' />
+</p>
+<br/>
+
+
+## Methylation distribution in intergenic regions
+<p float="left">
+<img src='Plots/meth dist. in intergenic - guppy' width='480px' height='400px' />
+<img src='Plots/meth dist. in intergenic - mega' width='480px' height='400px' />
+</p>
+<br/>
+
+
+## Comparison of Methylation distribution across all regions
+<p float="left">
+<img src='Plots/meth freq in FY - guppy' width='480px' height='400px' />
+<img src='Plots/meth freq in FY - megalodon' width='480px' height='400px' />
+</p>
+<br/>
+
+## Chromosome wise Methylation distribution in uncomplicated malaria
+<p float="left">
+<img src='Plots/Mean meth in P.vivax (FY-guppy)' width='480px' height='400px' />
+<img src='Plots/Mean meth in P.vivax (EL-guppy)' width='480px' height='400px' />
+</p>
+<br/>
+
+## Chromosome wise Methylation distribution in complicated malaria
+<p float="left">
+<img src='Plots/Mean meth in P.vivax (EB-guppy)' width='480px' height='400px' />
+</p>
+<br/>
+
+
 
 ### Using ```Shapiro Wilk test``` to check for normality distribution
 ```> shapiro.test(subset(df, NRC_regions == "Over rep.")$Frequency)```
@@ -51,13 +89,15 @@ The p-value is less than 0.05, thus the null hypothesis is rejected and it is co
 <br/>
 
 To understand which genomic regions within NRC caused this differential expression, we analysed methylation in intergenic, exonic and intronic reigons.
-## Distribution of methylation frequency in Intergenic regions of NRC
 
+## Distribution of methylation frequency in Intergenic regions of NRC
 <p float="left">
 <img src='Plots/intergenic - over rep..png' width='480px' height='400px' />
 <img src='Plots/Intergenic - under rep.png' width='480px' height='400px' />
 </p>
-  
+
+## Chromosome wise methylation distribution
+
 ### Using ```Shapiro Wilk test``` to check for normality distribution
 ```> shapiro.test(subset(df, NRC_regions == "Over rep.")$Frequency)```
 ```
