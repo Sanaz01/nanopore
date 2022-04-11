@@ -5,44 +5,44 @@ We used two different basecalling softwares - Guppy and Megalodon to study the p
 ## Methylation distribution in exonic regions
 
 <p float="left">
-<img src='Plots/meth dist. in exon - guppy' width='480px' height='400px' />
-<img src='Plots/meth dist. in exon - mega' width='480px' height='400px' />
+<img src='plots/meth dist. in exon - guppy' width='480px' height='400px' />
+<img src='plots/meth dist. in exon - mega' width='480px' height='400px' />
 </p>
 <br/>
 
 ## Methylation distribution in intronic regions
 <p float="left">
-<img src='Plots/meth dist. in intron - guppy' width='480px' height='400px' />
-<img src='Plots/meth dist. in intron - mega' width='480px' height='400px' />
+<img src='plots/meth dist. in intron - guppy' width='480px' height='400px' />
+<img src='plots/meth dist. in intron - mega' width='480px' height='400px' />
 </p>
 <br/>
 
 
 ## Methylation distribution in intergenic regions
 <p float="left">
-<img src='Plots/meth dist. in intergenic - guppy' width='480px' height='400px' />
-<img src='Plots/meth dist. in intergenic - mega' width='480px' height='400px' />
+<img src='plots/meth dist. in intergenic - guppy' width='480px' height='400px' />
+<img src='plots/meth dist. in intergenic - mega' width='480px' height='400px' />
 </p>
 <br/>
 
 
 ## Comparison of Methylation distribution across all regions
 <p float="left">
-<img src='Plots/meth freq in FY - guppy' width='480px' height='400px' />
-<img src='Plots/meth freq in FY - megalodon' width='480px' height='400px' />
+<img src='plots/meth freq in FY - guppy' width='480px' height='400px' />
+<img src='plots/meth freq in FY - megalodon' width='480px' height='400px' />
 </p>
 <br/>
 
 ## Chromosome wise Methylation distribution in uncomplicated malaria
 <p float="left">
-<img src='Plots/Mean meth in P.vivax (FY-guppy)' width='480px' height='400px' />
-<img src='Plots/Mean meth in P.vivax (EL-guppy)' width='480px' height='400px' />
+<img src='plots/Mean meth in P.vivax (FY-guppy)' width='480px' height='400px' />
+<img src='plots/Mean meth in P.vivax (EL-guppy)' width='480px' height='400px' />
 </p>
 <br/>
 
 ## Chromosome wise Methylation distribution in complicated malaria
 <p float="left">
-<img src='Plots/Mean meth in P.vivax (EB-guppy)' width='480px' height='400px' />
+<img src='plots/Mean meth in P.vivax (EB-guppy)' width='480px' height='400px' />
 </p>
 <br/>
 
@@ -72,7 +72,7 @@ Thus we reject the null hypothesis of normality for both distributions at the 5%
 
 ## Methylation comparision between over and under represented regions of NRC
 
-<img src='Plots/Over-Under freq. comparison.png' width='700px' height='500px' />
+<img src='plots/Over-Under freq. comparison.png' width='700px' height='500px' />
 
 To statistically validate the differential methylation status between over and under represented NRC regions, we use the non-parametric ```Wilcoxon test```.
 
@@ -92,8 +92,8 @@ To understand which genomic regions within NRC caused this differential expressi
 
 ## Distribution of methylation frequency in Intergenic regions of NRC
 <p float="left">
-<img src='Plots/intergenic - over rep..png' width='480px' height='400px' />
-<img src='Plots/Intergenic - under rep.png' width='480px' height='400px' />
+<img src='plots/intergenic - over rep..png' width='480px' height='400px' />
+<img src='plots/Intergenic - under rep.png' width='480px' height='400px' />
 </p>
 
 ## Chromosome wise methylation distribution
@@ -117,7 +117,7 @@ W = 0.87614, p-value < 2.2e-16
 ```
 ## Methylation comparision in intergenic regions of NRC
 
-<img src='Plots/Intergenic distribution comparision-NRC.png' width='700px' height='500px' />
+<img src='plots/Intergenic distribution comparision-NRC.png' width='700px' height='500px' />
 
 ```
 Wilcoxon rank sum test with continuity correction
@@ -132,8 +132,8 @@ The p-value is less than 0.05. Therefore, there is significant difference in the
 ## Distribution of methylation frequency in Exonic regions of NRC
 
 <p float="left">
-<img src='Plots/exonic - over rep..png' width='480px' height='400px' />
-<img src='Plots/exonic - under rep..png' width='480px' height='400px' />
+<img src='plots/exonic - over rep..png' width='480px' height='400px' />
+<img src='plots/exonic - under rep..png' width='480px' height='400px' />
 </p>
   
 ### Using ```Shapiro Wilk test``` to check for normality distribution
@@ -151,7 +151,7 @@ W = 0.85718, p-value = 4.223e-13
 ```
 ## Methylation comparision in exonic regions of NRC
 
-<img src='Plots/exonic distribution comparision-NRC.png' width='700px' height='500px' />
+<img src='plots/exonic distribution comparision-NRC.png' width='700px' height='500px' />
 
 ```
 Wilcoxon rank sum test with continuity correction
@@ -167,8 +167,8 @@ As p-value < 0.05, there is significant difference in the methylation status of 
 
 
 <p float="left">
-<img src='Plots/intronic - over rep..png' width='480px' height='400px' />
-<img src='Plots/intronic - under rep..png' width='480px' height='400px' />
+<img src='plots/intronic - over rep..png' width='480px' height='400px' />
+<img src='plots/intronic - under rep..png' width='480px' height='400px' />
 </p>
   
 ### Using ```Shapiro Wilk test``` to check for normality distribution
@@ -186,7 +186,7 @@ W = 0.81156, p-value = 2.905e-10
 ```
 ## Methylation comparision in intronic regions of NRC
 
-<img src='Plots/intronic distribution comparision-NRC.png' width='700px' height='500px' />
+<img src='plots/intronic distribution comparision-NRC.png' width='700px' height='500px' />
 
 ```
 Wilcoxon rank sum test with continuity correction
