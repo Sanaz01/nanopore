@@ -5,44 +5,44 @@ We used two different basecalling softwares - Guppy and Megalodon to study the p
 ## Methylation distribution in exonic regions
 
 <p float="left">
-<img src='plots/meth dist. in exon - guppy' width='480px' height='400px' />
-<img src='plots/meth dist. in exon - mega' width='480px' height='400px' />
+<img src='plots/meth dist. in exon - guppy.png' width='480px' height='400px' />
+<img src='plots/meth dist. in exon - mega.png' width='480px' height='400px' />
 </p>
 <br/>
 
 ## Methylation distribution in intronic regions
 <p float="left">
-<img src='plots/meth dist. in intron - guppy' width='480px' height='400px' />
-<img src='plots/meth dist. in intron - mega' width='480px' height='400px' />
+<img src='plots/meth dist. in intron - guppy.png' width='480px' height='400px' />
+<img src='plots/meth dist. in intron - mega.png' width='480px' height='400px' />
 </p>
 <br/>
 
 
 ## Methylation distribution in intergenic regions
 <p float="left">
-<img src='plots/meth dist. in intergenic - guppy' width='480px' height='400px' />
-<img src='plots/meth dist. in intergenic - mega' width='480px' height='400px' />
+<img src='plots/meth dist. in intergenic - guppy.png' width='480px' height='400px' />
+<img src='plots/meth dist. in intergenic - mega.png' width='480px' height='400px' />
 </p>
 <br/>
 
 
 ## Comparison of Methylation distribution across all regions
 <p float="left">
-<img src='plots/meth freq in FY - guppy' width='480px' height='400px' />
-<img src='plots/meth freq in FY - megalodon' width='480px' height='400px' />
+<img src='plots/meth freq in FY - guppy.png' width='480px' height='400px' />
+<img src='plots/meth freq in FY - megalodon.png' width='480px' height='400px' />
 </p>
 <br/>
 
 ## Chromosome wise Methylation distribution in uncomplicated malaria
 <p float="left">
-<img src='plots/Mean meth in P.vivax (FY-guppy)' width='480px' height='400px' />
-<img src='plots/Mean meth in P.vivax (EL-guppy)' width='480px' height='400px' />
+<img src='plots/Mean meth in P.vivax (FY-guppy).png' width='480px' height='400px' />
+<img src='plots/Mean meth in P.vivax (EL-guppy).png' width='480px' height='400px' />
 </p>
 <br/>
 
 ## Chromosome wise Methylation distribution in complicated malaria
 <p float="left">
-<img src='plots/Mean meth in P.vivax (EB-guppy)' width='480px' height='400px' />
+<img src='plots/Mean meth in P.vivax (EB-guppy).png' width='480px' height='400px' />
 </p>
 <br/>
 
