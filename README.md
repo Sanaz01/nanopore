@@ -1,5 +1,7 @@
 # Methylation distribution in NRC regions of _Maconellicoccus hirsutus_
 <br/>
+The following work is part of my undergraduate thesis project during my time at the Indian Institute of Technology, Delhi (IIT Delhi) in India.
+<br/>
 
 ## Methylation distribution in over and under represented NRC regions
 
