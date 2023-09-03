@@ -7,8 +7,8 @@ The following work is part of my undergraduate thesis project during my time at 
 
 <p float="left">
 
-<img src='Plots/avg. meth in over rep NRC.png' width='700px' height='500px' />
-<img src='Plots/Avg. meth in Under rep. NRC.png' width='700px' height='500px' />
+<img src='Plots/avg. meth in over rep NRC.png' width='400px' height='360px' />
+<img src='Plots/Avg. meth in Under rep. NRC.png' width='400px' height='360px' />
  </p>
 <br/>
 
