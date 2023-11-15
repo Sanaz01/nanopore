@@ -1,0 +1,56 @@
+##9 September 2021
+##by Sanaz Agarwal
+
+##Software and versions used:
+#Guppy - 5.0.11+2b6dbff (GPU based)
+#minimap2 - 2.22-r1105-dirty
+#samtools - 1.9
+#nanopolish - 0.13.3
+
+#Input files: Fast5 files - /nfs_master/external_data/surbhi2/SO_7587/fast5/SO_7587_fast5
+#             reference_genome.fasta
+
+#Config file chosen for basecalling - /nfs_master/guest2/sanaz/guppy/ont-guppy/data/dna_r9.4.1_450bps_modbases_5mc_hac.cfg
+
+##Inside the selected config file:
+# Basecalling.
+#model_file                          = template_r9.4.1_450bps_modbases_5mc_hac.jsn
+#chunk_size                          = 2000
+#gpu_runners_per_device              = 4
+#chunks_per_runner                   = 512
+#chunks_per_caller                   = 10000
+#overlap                             = 50
+#qscore_offset                       = -3.202
+#qscore_scale                        = 1.572
+#builtin_scripts                     = 1
+
+###############Commands and outputs#################
+
+##########Guppy basecalling using GPU
+nohup guppy_basecaller -c dna_r9.4.1_450bps_modbases_5mc_hac.cfg -i /nfs_master/external_data/surbhi2/SO_7587/fast5/SO_7587_fast5/ -s /nfs_master/guest2/sanaz/analysis/ --compress_fastq --recursive --num_callers 8 --gpu_runners_per_device 6 --chunks_per_runner 512 --chunk_size 3000 --chunks_per_caller 10000 --device cuda:0,1:50% --fast5_out > nohup_basecalling &
+
+#Output directory - /nfs_master/guest2/sanaz/analysis/basecalling_output
+#Copy all fastq files (after decompressing) from pass/ and fail/ into /nfs_master/guest2/sanaz/analysis/fastq_basecalled
+
+cd /nfs_master/guest2/sanaz/analysis/fastq_basecalled
+cat * > combined_basecalled.fastq
+mv combined_basecalled.fastq ../
+
+###########Data preprocessing
+nohup nanopolish index -d /nfs_master/external_data/surbhi2/SO_7587/fast5/SO_7587_fast5/ combined_basecalled.fastq > nohup_nanopolish_index &
+
+##Output files - combined_basecalled.fastq.index
+#                combined_basecalled.fastq.index.gzi
+#                combined_basecalled.fastq.index.readdb
+#                combined_basecalled.fastq.index.fai 
+
+###########Aligning reads to the reference genome
+minimap2 -a -x map-ont reference_genome.fasta combined_basecalled.fastq > minimap2_output.sam   #Output in SAM format, index file created - reference_genome.fasta.fai
+samtools view -S -b minimap2_output.sam > minimap2_output.bam                                      #SAM to BAM conversion
+samtools sort minimap2_output.bam -o minimap2_output.sorted.bam                                    #Sort BAM file 
+samtools index minimap2_output.sorted.bam
+
+###########Calling methylation
+nanopolish call-methylation -t 12 -r combined_basecalled.fastq -b minimap2_output.sorted.bam -g reference_genome.fasta --progress -q cpg > methylation_calls.tsv
+./calculate_methylation_frequency.py methylation_calls.tsv > methylation_frequency.tsv              #helper script to filter possible methylated sites
+./calculate_methylation_frequency.py -s methylation_calls.tsv > methylation_frequency_split.tsv     
